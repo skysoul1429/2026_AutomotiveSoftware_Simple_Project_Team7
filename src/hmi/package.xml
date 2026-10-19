@@ -11,7 +11,9 @@
 
   <depend>rclcpp</depend>
   <!-- ===================TODO - add other dependencies==================== -->
-  <!-- ~~~ -->
+  <depend>turtlesim</depend>
+  <depend>visualization_msgs</depend>
+  <depend>my_msgs</depend>
   <!-- =============================================================================== -->
 
   <test_depend>ament_lint_auto</test_depend>
