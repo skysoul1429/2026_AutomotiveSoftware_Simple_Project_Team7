@@ -2,6 +2,43 @@
 
 <launch>
     <!-- ===================TODO - add the nodes to be launched==================== -->
-    <!-- ~~~ -->
+
+    <arg name="with_hmi" default="false"/>
+
+    <node
+        pkg="turtlesim"
+        exec="turtlesim_node"
+        name="turtlesim"
+        output="screen">
+        <param name="background_r" value="255"/>
+        <param name="background_g" value="255"/>
+        <param name="background_b" value="255"/>
+    </node>
+
+    <node
+        pkg="moving_turtle"
+        exec="moving_turtle"
+        name="moving_turtle"
+        output="screen"/>
+
+    <node
+        pkg="color_changer"
+        exec="color_changer"
+        name="color_changer"
+        output="screen"/>
+
+    <node
+        if="$(var with_hmi)"
+        pkg="hmi"
+        exec="hmi"
+        name="hmi"
+        output="screen"/>
+
+    <node
+        pkg="rviz2"
+        exec="rviz2"
+        name="rviz2"
+        output="screen"/>
+
     <!-- =============================================================================== -->
 </launch>

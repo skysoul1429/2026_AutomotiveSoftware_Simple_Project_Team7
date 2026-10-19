@@ -4,6 +4,7 @@ project(moving_turtle)
 if(NOT CMAKE_C_STANDARD)
   set(CMAKE_C_STANDARD 99)
 endif()
+
 if(NOT CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD 14)
 endif()
@@ -19,8 +20,9 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+
 # -------------------TODO - find other dependencies--------------------
-# ~~~
+find_package(geometry_msgs REQUIRED)
 # -------------------------------------------------------------------------------
 
 include_directories(
@@ -28,15 +30,23 @@ include_directories(
 )
 
 # -------------------TODO - add executable moving_turtle.cpp--------------------
-# ~~~
+add_executable(moving_turtle
+  src/moving_turtle.cpp
+)
 # -------------------------------------------------------------------------------
 
 # -------------------TODO - add dependencies to the executable--------------------
-# ~~~
+ament_target_dependencies(moving_turtle
+  rclcpp
+  geometry_msgs
+)
 # -------------------------------------------------------------------------------
 
 # -------------------TODO - install the executable--------------------
-# ~~~
+install(TARGETS
+  moving_turtle
+  DESTINATION lib/moving_turtle
+)
 # -------------------------------------------------------------------------------
 
 ament_package()
