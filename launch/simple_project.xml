@@ -3,7 +3,7 @@
 <launch>
     <!-- ===================TODO - add the nodes to be launched==================== -->
 
-    <arg name="with_hmi" default="false"/>
+    <arg name="with_hmi" default="true"/>
 
     <node
         pkg="turtlesim"
@@ -38,6 +38,7 @@
         pkg="rviz2"
         exec="rviz2"
         name="rviz2"
+        args="-d $(find-pkg-share hmi)/rviz/simple_project.rviz"
         output="screen"/>
 
     <!-- =============================================================================== -->
